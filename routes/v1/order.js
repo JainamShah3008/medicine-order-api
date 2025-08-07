@@ -9,6 +9,6 @@ router.post("/place-order", userAuth, orderController.placeOrder);
 router.get(
   "/order-details/:orderId",
   userAuth,
-  orderController.getOrderDetails
+  orderController.getOrderById
 );
 module.exports = router;

@@ -1,7 +1,7 @@
 const db = require("../../models");
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
-const jwt = require("sendwebtoken");
+const jwt = require("jsonwebtoken");
 
 require("dotenv").config();
 
