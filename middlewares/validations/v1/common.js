@@ -7,7 +7,7 @@ exports.signUpValidator = [
     .not()
     .isEmpty()
     .withMessage("Password is required")
-    .length({ min: 6 })
+    .isLength({ min: 6 })
     .withMessage("Password must be at least 6 characters long"),
   check("email").custom((value) => {
     if (value.includes("@")) {
