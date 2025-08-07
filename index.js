@@ -38,8 +38,8 @@ app.use((req, res, next) => {
 const v1Route = require("./routes/v1");
 const adminRoute = require("./routes/admin");
 
-app.use("/api/v1", v1Route);
-app.use("/api/admin", adminRoute);
+app.use("/v1", v1Route);
+app.use("/admin", adminRoute);
 
 app.use("/", (req, res) => {
   return res.json({ message: "Welcome to medicine order api project." });
