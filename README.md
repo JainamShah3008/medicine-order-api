@@ -14,6 +14,19 @@ This is a **Node.js + Express.js backend application** designed for managing use
 - File uploads using `multer`
 - Configurable via `.env` file
 - Structured folder hierarchy for scaling
+- Role-based access control
+- JWT authentication
+- File upload support
+- Error handling middleware
+- Environment variables configuration
+- Sequelize ORM for database interactions
+- MySQL database
+- Migrations for database schema
+- Models for database entities
+- Controllers for business logic
+- Routes for API endpoints
+- Middlewares for request processing
+- Utilities for common tasks
 
 ---
 
@@ -21,10 +34,19 @@ This is a **Node.js + Express.js backend application** designed for managing use
 
 - Node.js
 - Express.js
-- MongoDB (expected based on structure)
+- MySQL (expected based on structure)
 - dotenv for environment variables
 - Joi for validation
 - Multer for file uploads
+- Sequelize for ORM
+- bcrypt for password hashing
+- jsonwebtoken for authentication
+- winston for logging
+- express-async-errors for async error handling
+- express-useragent for user agent information
+- helmet for security
+- cors for cross-origin resource sharing
+- nodemon for development
 
 ---
 
@@ -69,8 +91,10 @@ medicine/
    Example:
    ```env
    PORT=5000
-   MONGODB_URI=mongodb://localhost:27017/your-db
-   JWT_SECRET=your_secret_key
+   SQL_DB_HOST=localhost
+   SQL_DB_USER=root
+   SQL_DB_PASSWORD=
+   SQL_DB_NAME=medicine
    ```
 
 5. **Run the server**:
@@ -92,7 +116,7 @@ medicine/
 
 ## 📌 Important Notes
 
-- Make sure MongoDB is running if you're connecting to a local DB.
+- Make sure MySQL is running if you're connecting to a local DB.
 - Use Postman or cURL to test APIs.
 - You can modify or extend the `controllers/v1/` and `middlewares/validations/` for custom routes.
 
