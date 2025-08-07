@@ -1,0 +1,31 @@
+const { check, validationResult } = require("express-validator");
+
+exports.signUpValidator = [
+  check("name").not().isEmpty().withMessage("Name is required"),
+  check("email").not().isEmpty().withMessage("Email is required"),
+  check("password")
+    .not()
+    .isEmpty()
+    .withMessage("Password is required")
+    .length({ min: 6 })
+    .withMessage("Password must be at least 6 characters long"),
+  check("email").custom((value) => {
+    if (value.includes("@")) {
+      return true;
+    }
+    throw new Error("Invalid email format");
+  }).withMessage("Invalid email format"),
+];
+
+exports.loginValidator = [
+  check("email").not().isEmpty().withMessage("Email is required"),
+  check("password").not().isEmpty().withMessage("Password is required"),
+];
+
+exports.validation = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  next();
+};
